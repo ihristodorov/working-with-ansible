@@ -1,0 +1,6 @@
+---
+terraform_ver: '0.12.27'
+terraform_platform: linux_amd64
+terraform_url: https://releases.hashicorp.com/terraform/0.12.27/terraform_0.12.27_linux_amd64.zip
+terraform_install_dir: ~/bin
+install_dir: ~/bin

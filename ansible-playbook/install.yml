@@ -1,0 +1,6 @@
+---
+- name: Install Terraform 
+  hosts: localhost
+
+  roles:
+    - working-with-ansible

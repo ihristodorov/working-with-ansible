@@ -1,0 +1,25 @@
+---
+# tasks file for terraform
+- name: Terraform directory
+  file:
+    path: '{{ terraform_install_dir }}'
+    state: directory
+    mode: 0755
+- name: Download Terraform
+  get_url:
+    url: '{{ terraform_url }}'
+    dest: '{{terraform_install_dir}}'
+    mode: 0644
+- name: Unarchive Terraform
+  unarchive:
+    remote_src: yes
+    src: '{{ terraform_install_dir }}/terraform_0.12.27_linux_amd64.zip'
+    dest: '{{ terraform_install_dir }}'
+- name: Clean zip file after unarchive
+  file:
+    state: absent
+    path: '{{ terraform_install_dir }}/terraform_0.12.27_linux_amd64.zip'
+- name: Check Terraform version
+  command: "terraform -v"
+  register: outputofterraformversion
+- debug: var=outputofterraformversion.stdout_lines
