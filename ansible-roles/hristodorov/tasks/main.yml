@@ -1,6 +1,6 @@
 ---
 # tasks file for terraform
-- name: Terraform directory
+- name: Create Terraform directory
   file:
     path: '{{ terraform_install_dir }}'
     state: directory
